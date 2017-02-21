@@ -1,0 +1,26 @@
+NCMF\DefaultBundle\Entity\Instance:
+    type: entity
+    table: null
+    repositoryClass: NCMF\DefaultBundle\Repository\InstanceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        code:
+            type: string
+            length: 255
+    manyToOne:
+        object:
+            targetEntity: Object
+            inversedBy: instances
+            joinColumn:
+                name: object_id
+                referencedColumnName: id
+                onDelete: CASCADE
+    lifecycleCallbacks: {  }

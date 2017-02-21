@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Objectfields list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for objectField in objectFields %}
+            <tr>
+                <td><a href="{{ path('admin_objectfield_show', { 'id': objectField.id }) }}">{{ objectField.id }}</a></td>
+                <td>{{ objectField.name }}</td>
+                <td>{{ objectField.code }}</td>
+                <td>{{ objectField.type }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_objectfield_show', { 'id': objectField.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_objectfield_edit', { 'id': objectField.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_objectfield_new') }}">Create a new objectField</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -5,6 +5,7 @@ namespace NCMF\DefaultBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Tests\Exception\NotFoundHttpExceptionTest;
 use Yavin\Symfony\Controller\InitControllerInterface;
@@ -23,7 +24,7 @@ class DefaultController extends Controller implements InitControllerInterface
             $granted = $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN');
 
 		    if ($alias->getSite()->getClosed() && !$granted) {
-                throw new AccessDeniedHttpException('Сайт закрыт на техническое обслуживание');
+                throw new AccessDeniedException('Сайт закрыт на техническое обслуживание');
             }
 
         }

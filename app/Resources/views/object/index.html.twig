@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Objects list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for object in objects %}
+            <tr>
+                <td><a href="{{ path('admin_object_show', { 'id': object.id }) }}">{{ object.id }}</a></td>
+                <td>{{ object.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_object_show', { 'id': object.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_object_edit', { 'id': object.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_object_new') }}">Create a new object</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,24 @@
+NCMF\DefaultBundle\Entity\Object:
+    type: entity
+    table: null
+    repositoryClass: NCMF\DefaultBundle\Repository\ObjectRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+    oneToMany:
+        instances:
+            targetEntity: Instance
+            mappedBy: object
+            cascade: ["persist"]
+        fields:
+            targetEntity: ObjectField
+            mappedBy: object
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

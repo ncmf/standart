@@ -14,4 +14,13 @@ ncmf_default_admin_sitealias:
     resource: "@NCMFDefaultBundle/Resources/config/routing/sitealias.yml"
     prefix:   /admin/sitealias
 
+ncmf_default_admin_object:
+    resource: "@NCMFDefaultBundle/Resources/config/routing/object.yml"
+    prefix:   /admin/object
+
+ncmf_default_admin_objectfield:
+    resource: "@NCMFDefaultBundle/Resources/config/routing/objectfield.yml"
+    prefix:   /admin/objectfield
+
+
 

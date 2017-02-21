@@ -1,0 +1,24 @@
+NCMF\DefaultBundle\Entity\FieldValueFile:
+    type: entity
+    table: null
+    repositoryClass: NCMF\DefaultBundle\Repository\FieldValueFileRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: text
+            length: 255
+        description:
+            type: string
+            length: 255
+    oneToOne:
+        file:
+            targetEntity: File
+            joinColumn:
+                name: file_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
