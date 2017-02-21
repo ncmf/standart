@@ -1,0 +1,5 @@
+services:
+   symfony.controller.subscriber.init:
+       class: Yavin\Symfony\Controller\InitControllerSubscriber
+       tags:
+           - { name: kernel.event_subscriber }

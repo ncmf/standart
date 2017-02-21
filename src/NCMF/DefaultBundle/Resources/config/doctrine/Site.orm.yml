@@ -1,0 +1,22 @@
+NCMF\DefaultBundle\Entity\Site:
+    type: entity
+    table: null
+    repositoryClass: NCMF\DefaultBundle\Repository\SiteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        closed:
+            type: boolean
+    oneToMany:
+        aliases:
+            targetEntity: SiteAlias
+            mappedBy: site
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

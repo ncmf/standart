@@ -1,0 +1,24 @@
+NCMF\DefaultBundle\Entity\SiteAlias:
+    type: entity
+    table: null
+    repositoryClass: NCMF\DefaultBundle\Repository\SiteAliasRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
+    manyToOne:
+        site:
+            targetEntity: Site
+            inversedBy: aliases
+            joinColumn:
+                name: site_id
+                referencedColumnName: id
+                onDelete: CASCADE
+    lifecycleCallbacks: {  }

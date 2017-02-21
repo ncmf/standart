@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sitealiases list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for siteAlias in siteAliases %}
+            <tr>
+                <td><a href="{{ path('admin_sitealias_show', { 'id': siteAlias.id }) }}">{{ siteAlias.id }}</a></td>
+                <td>{{ siteAlias.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_sitealias_show', { 'id': siteAlias.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_sitealias_edit', { 'id': siteAlias.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_sitealias_new') }}">Create a new siteAlias</a>
+        </li>
+    </ul>
+{% endblock %}

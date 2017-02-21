@@ -1,0 +1,77 @@
+NCMF\DefaultBundle\Entity\Section:
+    type: entity
+    table: null
+    gedmo:
+        tree:
+            type: nested
+    repositoryClass: Gedmo\Tree\Entity\Repository\NestedTreeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        code:
+            type: string
+            length: 255
+            gedmo:
+                - sluggable
+        lft:
+            type: integer
+            gedmo:
+                - treeLeft
+        rgt:
+            type: integer
+            gedmo:
+                - treeRight
+        lvl:
+            type: integer
+            gedmo:
+                - treeLevel
+        slug:
+            type: string
+            length: 125
+            gedmo:
+                slug:
+                    separator: -
+                    style: lower
+                    fields:
+                        - code
+                    handlers:
+#                        Gedmo\Sluggable\Handler\RelativeSlugHandler:
+#                            relationField: parent
+#                            relationSlugField: slug
+#                            separator: /
+                        Gedmo\Sluggable\Handler\TreeSlugHandler:
+                            parentRelationField: parent
+                            separator: /
+    indexes:
+        search_idx:
+            columns: slug
+    manyToOne:
+        root:
+            targetEntity: Section
+            joinColumn:
+                referencedColumnName: id
+                onDelete: CASCADE
+            gedmo:
+                - treeRoot
+        parent:
+            targetEntity: Section
+            inversedBy: children
+            joinColumn:
+                referencedColumnName: id
+                onDelete: CASCADE
+            gedmo:
+                - treeParent
+    oneToMany:
+        children:
+            targetEntity: Section
+            mappedBy: parent
+            orderBy:
+                lft: ASC
+    lifecycleCallbacks: {  }

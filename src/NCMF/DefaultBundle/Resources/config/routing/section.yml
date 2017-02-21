@@ -1,0 +1,24 @@
+admin_section_index:
+    path:     /
+    defaults: { _controller: "NCMFDefaultBundle:Section:index" }
+    methods:  GET
+
+admin_section_show:
+    path:     /{id}/show
+    defaults: { _controller: "NCMFDefaultBundle:Section:show" }
+    methods:  GET
+
+admin_section_new:
+    path:     /new
+    defaults: { _controller: "NCMFDefaultBundle:Section:new" }
+    methods:  [GET, POST]
+
+admin_section_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NCMFDefaultBundle:Section:edit" }
+    methods:  [GET, POST]
+
+admin_section_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NCMFDefaultBundle:Section:delete" }
+    methods:  DELETE

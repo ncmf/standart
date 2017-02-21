@@ -1,0 +1,24 @@
+admin_site_index:
+    path:     /
+    defaults: { _controller: "NCMFDefaultBundle:Site:index" }
+    methods:  GET
+
+admin_site_show:
+    path:     /{id}/show
+    defaults: { _controller: "NCMFDefaultBundle:Site:show" }
+    methods:  GET
+
+admin_site_new:
+    path:     /new
+    defaults: { _controller: "NCMFDefaultBundle:Site:new" }
+    methods:  [GET, POST]
+
+admin_site_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NCMFDefaultBundle:Site:edit" }
+    methods:  [GET, POST]
+
+admin_site_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NCMFDefaultBundle:Site:delete" }
+    methods:  DELETE

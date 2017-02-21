@@ -1,0 +1,17 @@
+ncmf_default_homepage:
+    path:     /
+    defaults: { _controller: NCMFDefaultBundle:Default:index }
+
+ncmf_default_admin_section:
+    resource: "@NCMFDefaultBundle/Resources/config/routing/section.yml"
+    prefix:   /admin/section
+
+ncmf_default_admin_site:
+    resource: "@NCMFDefaultBundle/Resources/config/routing/site.yml"
+    prefix:   /admin/site
+
+ncmf_default_admin_sitealias:
+    resource: "@NCMFDefaultBundle/Resources/config/routing/sitealias.yml"
+    prefix:   /admin/sitealias
+
+

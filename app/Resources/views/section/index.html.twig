@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sections list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Lft</th>
+                <th>Rgt</th>
+                <th>Lvl</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for section in sections %}
+            <tr>
+                <td><a href="{{ path('admin_section_show', { 'id': section.id }) }}">{{ section.id }}</a></td>
+                <td>{{ section.name }}</td>
+                <td>{{ section.code }}</td>
+                <td>{{ section.lft }}</td>
+                <td>{{ section.rgt }}</td>
+                <td>{{ section.lvl }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_section_show', { 'id': section.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_section_edit', { 'id': section.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_section_new') }}">Create a new section</a>
+        </li>
+    </ul>
+{% endblock %}
