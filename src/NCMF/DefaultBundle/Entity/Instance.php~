@@ -80,5 +80,79 @@ class Instance
     {
         return $this->code;
     }
-}
+    /**
+     * @var \NCMF\DefaultBundle\Entity\Object
+     */
+    private $object;
 
+
+    /**
+     * Set object
+     *
+     * @param \NCMF\DefaultBundle\Entity\Object $object
+     *
+     * @return Instance
+     */
+    public function setObject(\NCMF\DefaultBundle\Entity\Object $object = null)
+    {
+        $this->object = $object;
+
+        return $this;
+    }
+
+    /**
+     * Get object
+     *
+     * @return \NCMF\DefaultBundle\Entity\Object
+     */
+    public function getObject()
+    {
+        return $this->object;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $valueText;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->valueText = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add valueText
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valueText
+     *
+     * @return Instance
+     */
+    public function addValueText(\NCMF\DefaultBundle\Entity\FieldValueText $valueText)
+    {
+        $this->valueText[] = $valueText;
+
+        return $this;
+    }
+
+    /**
+     * Remove valueText
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valueText
+     */
+    public function removeValueText(\NCMF\DefaultBundle\Entity\FieldValueText $valueText)
+    {
+        $this->valueText->removeElement($valueText);
+    }
+
+    /**
+     * Get valueText
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getValueText()
+    {
+        return $this->valueText;
+    }
+}

@@ -26,9 +26,14 @@ NCMF\DefaultBundle\Entity\ObjectField:
                 name: object_id
                 referencedColumnName: id
                 onDelete: CASCADE
+                nullable: false
     oneToMany:
-        valuesText:
+        valueText:
             targetEntity: FieldValueText
+            mappedBy: field
+            cascade: ["persist"]
+        valueFile:
+            targetEntity: FieldValueFile
             mappedBy: field
             cascade: ["persist"]
     lifecycleCallbacks: {  }

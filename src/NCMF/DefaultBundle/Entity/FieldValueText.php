@@ -109,4 +109,33 @@ class FieldValueText
     {
         return $this->field;
     }
+    /**
+     * @var \NCMF\DefaultBundle\Entity\Instance
+     */
+    private $instance;
+
+
+    /**
+     * Set instance
+     *
+     * @param \NCMF\DefaultBundle\Entity\Instance $instance
+     *
+     * @return FieldValueText
+     */
+    public function setInstance(\NCMF\DefaultBundle\Entity\Instance $instance = null)
+    {
+        $this->instance = $instance;
+
+        return $this;
+    }
+
+    /**
+     * Get instance
+     *
+     * @return \NCMF\DefaultBundle\Entity\Instance
+     */
+    public function getInstance()
+    {
+        return $this->instance;
+    }
 }

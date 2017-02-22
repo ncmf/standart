@@ -109,4 +109,89 @@ class Instance
     {
         return $this->object;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $valueText;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->valueText = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add valueText
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valueText
+     *
+     * @return Instance
+     */
+    public function addValueText(\NCMF\DefaultBundle\Entity\FieldValueText $valueText)
+    {
+        $this->valueText[] = $valueText;
+
+        return $this;
+    }
+
+    /**
+     * Remove valueText
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valueText
+     */
+    public function removeValueText(\NCMF\DefaultBundle\Entity\FieldValueText $valueText)
+    {
+        $this->valueText->removeElement($valueText);
+    }
+
+    /**
+     * Get valueText
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getValueText()
+    {
+        return $this->valueText;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $valueFile;
+
+
+    /**
+     * Add valueFile
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueFile $valueFile
+     *
+     * @return Instance
+     */
+    public function addValueFile(\NCMF\DefaultBundle\Entity\FieldValueFile $valueFile)
+    {
+        $this->valueFile[] = $valueFile;
+
+        return $this;
+    }
+
+    /**
+     * Remove valueFile
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueFile $valueFile
+     */
+    public function removeValueFile(\NCMF\DefaultBundle\Entity\FieldValueFile $valueFile)
+    {
+        $this->valueFile->removeElement($valueFile);
+    }
+
+    /**
+     * Get valueFile
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getValueFile()
+    {
+        return $this->valueFile;
+    }
 }

@@ -7,14 +7,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ObjectFieldType extends AbstractType
+class InstanceType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('code')->add('type');
+        $builder->add('name')->add('code');
         $builder->add('object', EntityType::class, array(
             'required' => true,
             'class' => 'NCMFDefaultBundle:Object',
@@ -28,7 +28,7 @@ class ObjectFieldType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'NCMF\DefaultBundle\Entity\ObjectField'
+            'data_class' => 'NCMF\DefaultBundle\Entity\Instance'
         ));
     }
 
@@ -37,7 +37,7 @@ class ObjectFieldType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'ncmf_defaultbundle_objectfield';
+        return 'ncmf_defaultbundle_instance';
     }
 
 

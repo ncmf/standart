@@ -15,12 +15,20 @@ NCMF\DefaultBundle\Entity\FieldValueText:
         description:
             type: string
             length: 255
+            nullable: true
     manyToOne:
         field:
             targetEntity: ObjectField
-            inversedBy: valuesText
+            inversedBy: valueText
             joinColumn:
                 name: field_id
+                referencedColumnName: id
+                onDelete: CASCADE
+        instance:
+            targetEntity: Instance
+            inversedBy: valueText
+            joinColumn:
+                name: instance_id
                 referencedColumnName: id
                 onDelete: CASCADE
     lifecycleCallbacks: {  }

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fieldvaluetexts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Value</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fieldValueText in fieldValueTexts %}
+            <tr>
+                <td><a href="{{ path('admin_fieldvaluetext_show', { 'id': fieldValueText.id }) }}">{{ fieldValueText.id }}</a></td>
+                <td>{{ fieldValueText.value }}</td>
+                <td>{{ fieldValueText.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_fieldvaluetext_show', { 'id': fieldValueText.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_fieldvaluetext_edit', { 'id': fieldValueText.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_fieldvaluetext_new') }}">Create a new fieldValueText</a>
+        </li>
+    </ul>
+{% endblock %}

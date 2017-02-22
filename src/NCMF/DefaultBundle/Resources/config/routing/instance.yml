@@ -1,0 +1,24 @@
+admin_instance_index:
+    path:     /
+    defaults: { _controller: "NCMFDefaultBundle:Instance:index" }
+    methods:  GET
+
+admin_instance_show:
+    path:     /{id}/show
+    defaults: { _controller: "NCMFDefaultBundle:Instance:show" }
+    methods:  GET
+
+admin_instance_new:
+    path:     /new
+    defaults: { _controller: "NCMFDefaultBundle:Instance:new" }
+    methods:  [GET, POST]
+
+admin_instance_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NCMFDefaultBundle:Instance:edit" }
+    methods:  [GET, POST]
+
+admin_instance_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NCMFDefaultBundle:Instance:delete" }
+    methods:  DELETE

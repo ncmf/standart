@@ -1,0 +1,24 @@
+admin_fieldvaluetext_index:
+    path:     /
+    defaults: { _controller: "NCMFDefaultBundle:FieldValueText:index" }
+    methods:  GET
+
+admin_fieldvaluetext_show:
+    path:     /{id}/show
+    defaults: { _controller: "NCMFDefaultBundle:FieldValueText:show" }
+    methods:  GET
+
+admin_fieldvaluetext_new:
+    path:     /new
+    defaults: { _controller: "NCMFDefaultBundle:FieldValueText:new" }
+    methods:  [GET, POST]
+
+admin_fieldvaluetext_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NCMFDefaultBundle:FieldValueText:edit" }
+    methods:  [GET, POST]
+
+admin_fieldvaluetext_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NCMFDefaultBundle:FieldValueText:delete" }
+    methods:  DELETE

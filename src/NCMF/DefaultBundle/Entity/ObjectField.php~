@@ -138,4 +138,50 @@ class ObjectField
     {
         return $this->object;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $valuesText;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->valuesText = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add valuesText
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valuesText
+     *
+     * @return ObjectField
+     */
+    public function addValuesText(\NCMF\DefaultBundle\Entity\FieldValueText $valuesText)
+    {
+        $this->valuesText[] = $valuesText;
+
+        return $this;
+    }
+
+    /**
+     * Remove valuesText
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valuesText
+     */
+    public function removeValuesText(\NCMF\DefaultBundle\Entity\FieldValueText $valuesText)
+    {
+        $this->valuesText->removeElement($valuesText);
+    }
+
+    /**
+     * Get valuesText
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getValuesText()
+    {
+        return $this->valuesText;
+    }
 }

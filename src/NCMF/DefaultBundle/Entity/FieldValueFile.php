@@ -109,4 +109,62 @@ class FieldValueFile
     {
         return $this->file;
     }
+    /**
+     * @var \NCMF\DefaultBundle\Entity\ObjectField
+     */
+    private $field;
+
+    /**
+     * @var \NCMF\DefaultBundle\Entity\Instance
+     */
+    private $instance;
+
+
+    /**
+     * Set field
+     *
+     * @param \NCMF\DefaultBundle\Entity\ObjectField $field
+     *
+     * @return FieldValueFile
+     */
+    public function setField(\NCMF\DefaultBundle\Entity\ObjectField $field = null)
+    {
+        $this->field = $field;
+
+        return $this;
+    }
+
+    /**
+     * Get field
+     *
+     * @return \NCMF\DefaultBundle\Entity\ObjectField
+     */
+    public function getField()
+    {
+        return $this->field;
+    }
+
+    /**
+     * Set instance
+     *
+     * @param \NCMF\DefaultBundle\Entity\Instance $instance
+     *
+     * @return FieldValueFile
+     */
+    public function setInstance(\NCMF\DefaultBundle\Entity\Instance $instance = null)
+    {
+        $this->instance = $instance;
+
+        return $this;
+    }
+
+    /**
+     * Get instance
+     *
+     * @return \NCMF\DefaultBundle\Entity\Instance
+     */
+    public function getInstance()
+    {
+        return $this->instance;
+    }
 }

@@ -22,5 +22,15 @@ ncmf_default_admin_objectfield:
     resource: "@NCMFDefaultBundle/Resources/config/routing/objectfield.yml"
     prefix:   /admin/objectfield
 
+ncmf_default_admin_fieldvaluetext:
+    resource: "@NCMFDefaultBundle/Resources/config/routing/fieldvaluetext.yml"
+    prefix:   /admin/fieldvaluetext
+
+ncmf_default_admin_instance:
+    resource: "@NCMFDefaultBundle/Resources/config/routing/instance.yml"
+    prefix:   /admin/instance
+
+
+
 
 

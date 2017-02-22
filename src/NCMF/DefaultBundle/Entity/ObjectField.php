@@ -184,4 +184,82 @@ class ObjectField
     {
         return $this->valuesText;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $valueText;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $valueFile;
+
+
+    /**
+     * Add valueText
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valueText
+     *
+     * @return ObjectField
+     */
+    public function addValueText(\NCMF\DefaultBundle\Entity\FieldValueText $valueText)
+    {
+        $this->valueText[] = $valueText;
+
+        return $this;
+    }
+
+    /**
+     * Remove valueText
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valueText
+     */
+    public function removeValueText(\NCMF\DefaultBundle\Entity\FieldValueText $valueText)
+    {
+        $this->valueText->removeElement($valueText);
+    }
+
+    /**
+     * Get valueText
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getValueText()
+    {
+        return $this->valueText;
+    }
+
+    /**
+     * Add valueFile
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valueFile
+     *
+     * @return ObjectField
+     */
+    public function addValueFile(\NCMF\DefaultBundle\Entity\FieldValueText $valueFile)
+    {
+        $this->valueFile[] = $valueFile;
+
+        return $this;
+    }
+
+    /**
+     * Remove valueFile
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valueFile
+     */
+    public function removeValueFile(\NCMF\DefaultBundle\Entity\FieldValueText $valueFile)
+    {
+        $this->valueFile->removeElement($valueFile);
+    }
+
+    /**
+     * Get valueFile
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getValueFile()
+    {
+        return $this->valueFile;
+    }
 }
