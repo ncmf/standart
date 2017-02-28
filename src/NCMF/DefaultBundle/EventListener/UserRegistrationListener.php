@@ -28,6 +28,8 @@ class UserRegistrationListener implements EventSubscriberInterface
 	}
 
 	public function onRegistrationSuccess(FormEvent $event){
+	    if ($event->getForm()->has('security') == false)
+	        return;
 		$security = $event->getForm()->get('security')->getData();
 		if ($security) {
             $user = $event->getForm()->getData();

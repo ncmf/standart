@@ -1,8 +1,55 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+
+<div class="row">
+    <div class="col-md-3">
     </div>
-{{ form_end(form) }}
+    <div class="col-md-5">
+        <div class="card mt-5">
+            <div class="card-block">
+                <h4 class="card-title">{{ 'layout.register'|trans }}</h4>
+
+                {#{% if form.vars.errors %}#}
+                {#<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
+                {#<div class="alert alert-danger">В форме обнаружены ошибки</div>#}
+                {#{% endif %}#}
+                {{ form_errors(form) }}
+                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                {% set break = false %}
+                {% for formField in form.children %}
+                    {% if formField.vars.name == ('plainPassword') or (formField.vars.name == '_token') %}
+                    {% else %}
+
+                        {{ form_row(formField) }}
+                        
+
+                    {% endif %}
+                {% endfor %}
+                {% for passwordField in form.plainPassword %}
+                    {{ form_row(passwordField) }}
+                    {#<div class="form-group{% if passwordField not valid %} has-danger{% endif %}">#}
+                    {#{{ form_label(passwordField) }}#}
+                    {#{{ form_widget(passwordField, { 'attr': {'class': 'form-control'} }) }}#}
+                    {#{{ form_errors(passwordField) }}#}
+                    {#</div>#}
+                    {#{{ dump(passwordField.vars.errors) }}#}
+                {% endfor %}
+
+                <div class="form-group text-center">
+                    <input class="btn btn-primary" type="submit" value="{{ 'registration.submit'|trans }}"/>
+                </div>
+                {{ form_end(form) }}
+            </div>
+            <div class="card-footer text-muted">
+                <div class="row">
+                    <div class="col-md-6">
+                        <small><a href="{{ path('fos_user_security_login') }}">Уже зарегистрированы?</a></small>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <small><a href="{{ path('fos_user_security_login') }}">Забыли пароль?</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

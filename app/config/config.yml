@@ -39,6 +39,7 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes: ['bootstrap-form.html.twig']
 
 # Doctrine Configuration
 doctrine:
@@ -122,3 +123,5 @@ fos_user:
     registration:
         form:
             type:  NCMF\DefaultBundle\Form\RegistrationType
+        confirmation:
+            enabled: true
