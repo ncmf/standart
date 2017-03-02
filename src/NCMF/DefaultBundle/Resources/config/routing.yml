@@ -1,6 +1,5 @@
-ncmf_default_homepage:
+ncmf_homepage:
     path:     /
-    defaults: { _controller: NCMFDefaultBundle:Default:index }
 
 ncmf_default_admin_section:
     resource: "@NCMFDefaultBundle/Resources/config/routing/section.yml"
