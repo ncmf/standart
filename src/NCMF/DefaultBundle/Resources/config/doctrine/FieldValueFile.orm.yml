@@ -1,6 +1,6 @@
 NCMF\DefaultBundle\Entity\FieldValueFile:
     type: entity
-    table: null
+    table: "field__value__file"
     repositoryClass: NCMF\DefaultBundle\Repository\FieldValueFileRepository
     id:
         id:

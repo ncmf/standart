@@ -1,6 +1,6 @@
 NCMF\DefaultBundle\Entity\FieldValueText:
     type: entity
-    table: null
+    table: "field__value__text"
     repositoryClass: NCMF\DefaultBundle\Repository\FieldValueTextRepository
     id:
         id:
