@@ -15,9 +15,11 @@ NCMF\DefaultBundle\Entity\Section:
         name:
             type: string
             length: 255
+            nullable: false
         code:
             type: string
             length: 255
+            nullable: false
             gedmo:
                 - sluggable
         lft:
@@ -52,6 +54,9 @@ NCMF\DefaultBundle\Entity\Section:
     indexes:
         search_idx:
             columns: slug
+    uniqueConstraints:
+        site_slug:
+            columns: [ slug, site_id ]
     manyToOne:
         root:
             targetEntity: Section
@@ -68,6 +73,14 @@ NCMF\DefaultBundle\Entity\Section:
                 onDelete: CASCADE
             gedmo:
                 - treeParent
+        site:
+            targetEntity: Site
+            inversedBy: sections
+            joinColumn:
+                name: site_id
+                referencedColumnName: id
+                onDelete: "SET NULL"
+                nullable: true
     oneToMany:
         children:
             targetEntity: Section

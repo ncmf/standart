@@ -7,8 +7,10 @@ namespace NCMF\DefaultBundle\Entity;
  */
 class ObjectField
 {
+  
+    
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -23,15 +25,38 @@ class ObjectField
     private $code;
 
     /**
-     * @var string
+     * @var \Doctrine\Common\Collections\Collection
      */
-    private $type;
+    private $valueText;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $valueFile;
+
+    /**
+     * @var \NCMF\DefaultBundle\Entity\Object
+     */
+    private $object;
+
+    /**
+     * @var \NCMF\DefaultBundle\Entity\FieldType
+     */
+    private $fieldType;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->valueText = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->valueFile = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -87,115 +112,6 @@ class ObjectField
     }
 
     /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return ObjectField
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-    /**
-     * @var \NCMF\DefaultBundle\Entity\Object
-     */
-    private $object;
-
-
-    /**
-     * Set object
-     *
-     * @param \NCMF\DefaultBundle\Entity\Object $object
-     *
-     * @return ObjectField
-     */
-    public function setObject(\NCMF\DefaultBundle\Entity\Object $object = null)
-    {
-        $this->object = $object;
-
-        return $this;
-    }
-
-    /**
-     * Get object
-     *
-     * @return \NCMF\DefaultBundle\Entity\Object
-     */
-    public function getObject()
-    {
-        return $this->object;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $valuesText;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->valuesText = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add valuesText
-     *
-     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valuesText
-     *
-     * @return ObjectField
-     */
-    public function addValuesText(\NCMF\DefaultBundle\Entity\FieldValueText $valuesText)
-    {
-        $this->valuesText[] = $valuesText;
-
-        return $this;
-    }
-
-    /**
-     * Remove valuesText
-     *
-     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valuesText
-     */
-    public function removeValuesText(\NCMF\DefaultBundle\Entity\FieldValueText $valuesText)
-    {
-        $this->valuesText->removeElement($valuesText);
-    }
-
-    /**
-     * Get valuesText
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getValuesText()
-    {
-        return $this->valuesText;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $valueText;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $valueFile;
-
-
-    /**
      * Add valueText
      *
      * @param \NCMF\DefaultBundle\Entity\FieldValueText $valueText
@@ -232,11 +148,11 @@ class ObjectField
     /**
      * Add valueFile
      *
-     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valueFile
+     * @param \NCMF\DefaultBundle\Entity\FieldValueFile $valueFile
      *
      * @return ObjectField
      */
-    public function addValueFile(\NCMF\DefaultBundle\Entity\FieldValueText $valueFile)
+    public function addValueFile(\NCMF\DefaultBundle\Entity\FieldValueFile $valueFile)
     {
         $this->valueFile[] = $valueFile;
 
@@ -246,9 +162,9 @@ class ObjectField
     /**
      * Remove valueFile
      *
-     * @param \NCMF\DefaultBundle\Entity\FieldValueText $valueFile
+     * @param \NCMF\DefaultBundle\Entity\FieldValueFile $valueFile
      */
-    public function removeValueFile(\NCMF\DefaultBundle\Entity\FieldValueText $valueFile)
+    public function removeValueFile(\NCMF\DefaultBundle\Entity\FieldValueFile $valueFile)
     {
         $this->valueFile->removeElement($valueFile);
     }
@@ -261,5 +177,53 @@ class ObjectField
     public function getValueFile()
     {
         return $this->valueFile;
+    }
+
+    /**
+     * Set object
+     *
+     * @param \NCMF\DefaultBundle\Entity\Object $object
+     *
+     * @return ObjectField
+     */
+    public function setObject(\NCMF\DefaultBundle\Entity\Object $object)
+    {
+        $this->object = $object;
+
+        return $this;
+    }
+
+    /**
+     * Get object
+     *
+     * @return \NCMF\DefaultBundle\Entity\Object
+     */
+    public function getObject()
+    {
+        return $this->object;
+    }
+
+    /**
+     * Set fieldType
+     *
+     * @param \NCMF\DefaultBundle\Entity\FieldType $fieldType
+     *
+     * @return ObjectField
+     */
+    public function setFieldType(\NCMF\DefaultBundle\Entity\FieldType $fieldType)
+    {
+        $this->fieldType = $fieldType;
+
+        return $this;
+    }
+
+    /**
+     * Get fieldType
+     *
+     * @return \NCMF\DefaultBundle\Entity\FieldType
+     */
+    public function getFieldType()
+    {
+        return $this->fieldType;
     }
 }

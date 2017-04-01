@@ -22,4 +22,8 @@ NCMF\DefaultBundle\Entity\Site:
             targetEntity: SiteAlias
             mappedBy: site
             cascade: ["persist"]
+        sections:
+            targetEntity: Section
+            mappedBy: site
+            cascade: ["persist"]
     lifecycleCallbacks: {  }

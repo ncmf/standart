@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Objects list</h1>
+    <h1>Объекты</h1>
 
-    <table>
+    <table class="table-striped table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
+                <th>Имя</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -31,9 +31,9 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_object_new') }}">Create a new object</a>
+    <ul class="list-inline">
+        <li class="list-inline-item">
+            <a class="btn btn-success" href="{{ path('admin_object_new') }}">Новый объект</a>
         </li>
     </ul>
 {% endblock %}

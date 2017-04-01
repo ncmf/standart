@@ -1,0 +1,24 @@
+admin_fieldtype_index:
+    path:     /
+    defaults: { _controller: "NCMFDefaultBundle:FieldType:index" }
+    methods:  GET
+
+admin_fieldtype_show:
+    path:     /{id}/show
+    defaults: { _controller: "NCMFDefaultBundle:FieldType:show" }
+    methods:  GET
+
+admin_fieldtype_new:
+    path:     /new
+    defaults: { _controller: "NCMFDefaultBundle:FieldType:new" }
+    methods:  [GET, POST]
+
+admin_fieldtype_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NCMFDefaultBundle:FieldType:edit" }
+    methods:  [GET, POST]
+
+admin_fieldtype_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NCMFDefaultBundle:FieldType:delete" }
+    methods:  DELETE

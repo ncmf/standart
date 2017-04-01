@@ -1,25 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Objectfield</h1>
+    <h1>Свойство объекта</h1>
 
-    <table>
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ objectField.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Название</th>
                 <td>{{ objectField.name }}</td>
             </tr>
             <tr>
-                <th>Code</th>
+                <th>Код</th>
                 <td>{{ objectField.code }}</td>
             </tr>
             <tr>
-                <th>Type</th>
-                <td>{{ objectField.type }}</td>
+                <th>Тип данных</th>
+                <td>{{ objectField.fieldType.name }}</td>
             </tr>
         </tbody>
     </table>

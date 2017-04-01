@@ -15,7 +15,13 @@ class SectionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('code');
+        $builder->add('name');
+        $builder->add('code');
+        $builder->add('site', EntityType::class, array(
+            'required' => true,
+            'class' => 'NCMFDefaultBundle:Site',
+            'choice_label' => 'name',
+        ));
         $builder->add('parent', EntityType::class, array(
             'required' => false,
             'class' => 'NCMFDefaultBundle:Section',

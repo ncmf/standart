@@ -34,13 +34,7 @@
 <body>
 <div class="nb-error">
     <div class="error-code">{{ status_code }}</div>
-    {% if exception.code == 0 %}
-        <h3 class="font-bold">Страница не найдена</h3>
-    {% endif %}
-    {% if exception.code == 1 %}
-        <h3 class="font-bold">Хост не найден в системе</h3>
-    {% endif %}
-    {#<#}
+    <h3 class="font-bold">{{ exception.message }}</h3>
 
     <div class="error-desc">
         <p>

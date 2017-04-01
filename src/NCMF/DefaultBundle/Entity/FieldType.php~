@@ -3,10 +3,9 @@
 namespace NCMF\DefaultBundle\Entity;
 
 /**
- * ObjectField
+ * FieldType
  */
-class ObjectField
+class FieldType
 {
-  
-    
+ 
 }

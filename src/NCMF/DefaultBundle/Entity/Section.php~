@@ -305,4 +305,33 @@ class Section
     {
         return $this->slug;
     }
+    /**
+     * @var \NCMF\DefaultBundle\Entity\Site
+     */
+    private $site;
+
+
+    /**
+     * Set site
+     *
+     * @param \NCMF\DefaultBundle\Entity\Site $site
+     *
+     * @return Section
+     */
+    public function setSite(\NCMF\DefaultBundle\Entity\Site $site)
+    {
+        $this->site = $site;
+
+        return $this;
+    }
+
+    /**
+     * Get site
+     *
+     * @return \NCMF\DefaultBundle\Entity\Site
+     */
+    public function getSite()
+    {
+        return $this->site;
+    }
 }

@@ -155,4 +155,43 @@ class Site
     {
         return $this->code;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $sections;
+
+
+    /**
+     * Add section
+     *
+     * @param \NCMF\DefaultBundle\Entity\Site $section
+     *
+     * @return Site
+     */
+    public function addSection(\NCMF\DefaultBundle\Entity\Site $section)
+    {
+        $this->sections[] = $section;
+
+        return $this;
+    }
+
+    /**
+     * Remove section
+     *
+     * @param \NCMF\DefaultBundle\Entity\Site $section
+     */
+    public function removeSection(\NCMF\DefaultBundle\Entity\Site $section)
+    {
+        $this->sections->removeElement($section);
+    }
+
+    /**
+     * Get sections
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSections()
+    {
+        return $this->sections;
+    }
 }

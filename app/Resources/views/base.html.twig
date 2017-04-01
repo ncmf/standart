@@ -1,13 +1,52 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('admin_site_index') }}">Сайты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('admin_sitealias_index') }}">Алиасы сайтов</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('admin_section_index') }}">Каталоги</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_object_index') }}">Объекты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_objectfield_index') }}">Свойства объектов</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_fieldtype_index') }}">Типы свойств</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_instance_index') }}">Экземпляры объектов</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_fieldvaluetext_index') }}">Значения свойств</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+
+</div>
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+{% endblock %}
+</body>
 </html>

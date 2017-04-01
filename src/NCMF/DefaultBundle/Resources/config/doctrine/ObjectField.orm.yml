@@ -15,15 +15,20 @@ NCMF\DefaultBundle\Entity\ObjectField:
         code:
             type: string
             length: 255
-        type:
-            type: string
-            length: '20'
     manyToOne:
         object:
             targetEntity: Object
             inversedBy: fields
             joinColumn:
                 name: object_id
+                referencedColumnName: id
+                onDelete: CASCADE
+                nullable: false
+        fieldType:
+            targetEntity: FieldType
+            inversedBy: fields
+            joinColumn:
+                name: field_type_id
                 referencedColumnName: id
                 onDelete: CASCADE
                 nullable: false

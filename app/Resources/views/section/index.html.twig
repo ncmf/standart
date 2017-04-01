@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Sections list</h1>
+    <h1>Разделы</h1>
 
-    <table>
+    <table class="table-bordered table table-striped table-sm">
         <thead>
             <tr>
                 <th>Id</th>
@@ -12,6 +12,7 @@
                 <th>Lft</th>
                 <th>Rgt</th>
                 <th>Lvl</th>
+                <th>url</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -24,6 +25,7 @@
                 <td>{{ section.lft }}</td>
                 <td>{{ section.rgt }}</td>
                 <td>{{ section.lvl }}</td>
+                <td>{{ section.slug }}</td>
                 <td>
                     <ul>
                         <li>

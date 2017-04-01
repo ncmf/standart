@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fieldtypes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fieldType in fieldTypes %}
+            <tr>
+                <td><a href="{{ path('admin_fieldtype_show', { 'id': fieldType.id }) }}">{{ fieldType.id }}</a></td>
+                <td>{{ fieldType.name }}</td>
+                <td>{{ fieldType.code }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_fieldtype_show', { 'id': fieldType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_fieldtype_edit', { 'id': fieldType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_fieldtype_new') }}">Create a new fieldType</a>
+        </li>
+    </ul>
+{% endblock %}

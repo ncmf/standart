@@ -13,36 +13,42 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller implements InitControllerInterface
 {
-	public function init(Request $request)
-	{
-		$em = $this->getDoctrine()->getManager();
-		$alias = $em->getRepository('NCMFDefaultBundle:SiteAlias')->findOneBy(array('name' => $request->getHost()));
-		if (!$alias) {
-			throw new NotFoundHttpException('Хост не найден', null, 1);
-		}
-		else {
+    public function init(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $alias = $em->getRepository('NCMFDefaultBundle:SiteAlias')->findOneBy(array('name' => $request->getHost()));
+        if (!$alias) {
+            throw new NotFoundHttpException('Сайт не найден', null, 1);
+        } else {
             $granted = $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN');
 
-		    if ($alias->getSite()->getClosed() && !$granted) {
+            if ($alias->getSite()->getClosed() && !$granted) {
                 throw new AccessDeniedException('Сайт закрыт на техническое обслуживание');
             }
 
         }
-	}
+    }
 
-	private function getSite(Request $request){
+    private function getSite(Request $request)
+    {
         $em = $this->getDoctrine()->getManager();
         $alias = $em->getRepository('NCMFDefaultBundle:SiteAlias')->findOneBy(array('name' => $request->getHost()));
         return $alias->getSite();
         //$site = $em->getRepository('NCMFDefaultBundle:Site')->findOneBy(array('alias' => $alias));
     }
 
-	public function indexAction(Request $request)
-	{
-		//$response = $this->render('NovuscomCMFBundle:Status:Closed.html.twig');
-		//$response->setStatusCode(403);
-		//return $response;
+    public function indexAction(Request $request, $slug)
+    {
         $site = $this->getSite($request);
-		return $this->render('NCMFDefaultBundle:Default:index.html.twig');
-	}
+        $view = '@templates/' . $site->getCode() . '/Site.html.twig';
+        if ($this->get('templating')->exists($view) == false) {
+            throw new NotFoundHttpException('Шаблон сайта '.$site->getCode().' не найден', null, 2);
+        }
+        $em = $this->getDoctrine()->getManager();
+        $section = $em->getRepository('NCMFDefaultBundle:Section')->findOneBy(array('site' => $site, 'slug' => $slug));
+        dump($section);
+        return $this->render($view, array(
+            'section' => $section
+        ));
+    }
 }

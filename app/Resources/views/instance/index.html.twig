@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Instances list</h1>
+    <h1>Экземпляры объектов</h1>
 
-    <table>
+    <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Code</th>
+                <th>Имя</th>
+                <th>Код</th>
+                <th>Объект</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
                 <td><a href="{{ path('admin_instance_show', { 'id': instance.id }) }}">{{ instance.id }}</a></td>
                 <td>{{ instance.name }}</td>
                 <td>{{ instance.code }}</td>
+                <td>{{ instance.object.name }}</td>
                 <td>
                     <ul>
                         <li>
@@ -33,9 +35,9 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_instance_new') }}">Create a new instance</a>
+    <ul class="list-inline">
+        <li class="list-inline-item">
+            <a class="btn btn-success" href="{{ path('admin_instance_new') }}">Создать новый экземпляр объекта</a>
         </li>
     </ul>
 {% endblock %}
