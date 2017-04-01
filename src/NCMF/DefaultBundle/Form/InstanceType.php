@@ -20,6 +20,11 @@ class InstanceType extends AbstractType
             'class' => 'NCMFDefaultBundle:Object',
             'choice_label' => 'name',
         ));
+        $builder->add('section', EntityType::class, array(
+            'required' => true,
+            'class' => 'NCMFDefaultBundle:Section',
+            'choice_label' => 'name',
+        ));
     }
     
     /**

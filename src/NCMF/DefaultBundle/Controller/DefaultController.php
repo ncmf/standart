@@ -46,9 +46,16 @@ class DefaultController extends Controller implements InitControllerInterface
         }
         $em = $this->getDoctrine()->getManager();
         $section = $em->getRepository('NCMFDefaultBundle:Section')->findOneBy(array('site' => $site, 'slug' => $slug));
-        dump($section);
+        if (!$section) {
+            throw new NotFoundHttpException("Раздел не найден", null, 3);
+        }
+        $instance = $em->getRepository('NCMFDefaultBundle:Instance')->findOneBy(array('section' => $section));
+        if (!$instance) {
+            throw new NotFoundHttpException("На странице ничего не найдено", null, 4);
+        }
         return $this->render($view, array(
-            'section' => $section
+            'section' => $section,
+            'instance' => $instance
         ));
     }
 }

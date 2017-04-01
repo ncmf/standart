@@ -1,6 +1,8 @@
 composer.lock
 /templates/*
 !/templates/default
+/web/local/templates/*
+!/web/local/templates/default
 /app/config/parameters.yml
 /build/
 /phpunit.xml

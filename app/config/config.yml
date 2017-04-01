@@ -67,9 +67,9 @@ doctrine:
         proxy_namespace: Proxies
         proxy_dir: '%kernel.cache_dir%/doctrine/orm/Proxies'
         default_entity_manager: default
-        metadata_cache_driver: array
+        metadata_cache_driver: apcu
         query_cache_driver: array
-        result_cache_driver: array
+        result_cache_driver: apcu
 
 # Swiftmailer Configuration
 swiftmailer:

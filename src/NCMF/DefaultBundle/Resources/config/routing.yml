@@ -1,7 +1,3 @@
-ncmf_section:
-    path:     /
-    defaults: { _controller: "NCMFDefaultBundle:Default:index", slug: '' }
-
 ncmf_default_admin_section:
     resource: "@NCMFDefaultBundle/Resources/config/routing/section.yml"
     prefix:   /admin/section
@@ -35,7 +31,8 @@ ncmf_default_admin_fieldtype:
     prefix:   /admin/fieldtype
 
 
-
-
-
-
+ncmf_section:
+    path:     /{slug}
+    defaults: { _controller: "NCMFDefaultBundle:Default:index", slug: '' }
+    requirements:
+        slug: .+

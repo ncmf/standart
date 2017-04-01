@@ -15,6 +15,9 @@ NCMF\DefaultBundle\Entity\FieldValueText:
             type: string
             length: 255
             nullable: true
+    uniqueConstraints:
+        instance_field:
+            columns: [ instance_id, field_id ]
     manyToOne:
         field:
             targetEntity: ObjectField

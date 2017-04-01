@@ -87,4 +87,8 @@ NCMF\DefaultBundle\Entity\Section:
             mappedBy: parent
             orderBy:
                 lft: ASC
+        instances:
+            targetEntity: Instance
+            mappedBy: section
+            cascade: ["persist"]
     lifecycleCallbacks: {  }

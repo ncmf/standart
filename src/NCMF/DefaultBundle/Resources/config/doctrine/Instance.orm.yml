@@ -23,6 +23,13 @@ NCMF\DefaultBundle\Entity\Instance:
                 name: object_id
                 referencedColumnName: id
                 onDelete: CASCADE
+        section:
+            targetEntity: Section
+            inversedBy: instances
+            joinColumn:
+                name: section_id
+                referencedColumnName: id
+                onDelete: CASCADE
     oneToMany:
         valueText:
             targetEntity: FieldValueText

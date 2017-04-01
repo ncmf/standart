@@ -194,4 +194,44 @@ class Instance
     {
         return $this->valueFile;
     }
+    /**
+     * @var \NCMF\DefaultBundle\Entity\Section
+     */
+    private $section;
+
+
+    /**
+     * Set section
+     *
+     * @param \NCMF\DefaultBundle\Entity\Section $section
+     *
+     * @return Instance
+     */
+    public function setSection(\NCMF\DefaultBundle\Entity\Section $section = null)
+    {
+        $this->section = $section;
+
+        return $this;
+    }
+
+    /**
+     * Get section
+     *
+     * @return \NCMF\DefaultBundle\Entity\Section
+     */
+    public function getSection()
+    {
+        return $this->section;
+    }
+    public function getProperties(){
+        $fields = $this->getObject()->getFields();
+        $result = array();
+        foreach ($fields as $field) {
+            $result[$field->getCode()] = '';
+        }
+        foreach ($this->getValueText() as $valueText) {
+            $result[$valueText->getField()->getCode()] = $valueText->getValue();
+        }
+        return $result;
+    }
 }

@@ -334,4 +334,43 @@ class Section
     {
         return $this->site;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $instances;
+
+
+    /**
+     * Add instance
+     *
+     * @param \NCMF\DefaultBundle\Entity\Instance $instance
+     *
+     * @return Section
+     */
+    public function addInstance(\NCMF\DefaultBundle\Entity\Instance $instance)
+    {
+        $this->instances[] = $instance;
+
+        return $this;
+    }
+
+    /**
+     * Remove instance
+     *
+     * @param \NCMF\DefaultBundle\Entity\Instance $instance
+     */
+    public function removeInstance(\NCMF\DefaultBundle\Entity\Instance $instance)
+    {
+        $this->instances->removeElement($instance);
+    }
+
+    /**
+     * Get instances
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getInstances()
+    {
+        return $this->instances;
+    }
 }
