@@ -12,6 +12,9 @@ NCMF\DefaultBundle\Entity\Site:
         name:
             type: string
             length: 255
+        code:
+            type: string
+            length: 50
         closed:
             type: boolean
     oneToMany:

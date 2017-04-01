@@ -126,4 +126,33 @@ class Site
     {
         return $this->aliases;
     }
+    /**
+     * @var string
+     */
+    private $code;
+
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Site
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
 }

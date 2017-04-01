@@ -30,11 +30,19 @@ class DefaultController extends Controller implements InitControllerInterface
         }
 	}
 
-	public function indexAction()
+	private function getSite(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $alias = $em->getRepository('NCMFDefaultBundle:SiteAlias')->findOneBy(array('name' => $request->getHost()));
+        return $alias->getSite();
+        //$site = $em->getRepository('NCMFDefaultBundle:Site')->findOneBy(array('alias' => $alias));
+    }
+
+	public function indexAction(Request $request)
 	{
 		//$response = $this->render('NovuscomCMFBundle:Status:Closed.html.twig');
 		//$response->setStatusCode(403);
 		//return $response;
+        $site = $this->getSite($request);
 		return $this->render('NCMFDefaultBundle:Default:index.html.twig');
 	}
 }
