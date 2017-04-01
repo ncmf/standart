@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
     <h1>Значения свойств объектов</h1>
 
     <table class="table table-bordered table-striped">
@@ -9,6 +10,7 @@
                 <th>Id</th>
                 <th>Value</th>
                 <th>Экземпляр</th>
+                <th>Свойство</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,7 +19,12 @@
             <tr>
                 <td><a href="{{ path('admin_fieldvaluetext_show', { 'id': fieldValueText.id }) }}">{{ fieldValueText.id }}</a></td>
                 <td>{{ fieldValueText.value }}</td>
-                <td>{{ fieldValueText.instance.name }}</td>
+                <td>
+                    {{ fieldValueText.instance.name }}
+                </td>
+                <td>
+                    {{ fieldValueText.field.name }}
+                </td>
                 <td>
                     <ul>
                         <li>
