@@ -13,7 +13,7 @@
     "require": {
         "php": ">=5.5.9",
         "symfony/symfony": "^3",
-        "doctrine/orm": "dev-master",
+        "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
         "symfony/swiftmailer-bundle": "^2.3.10",
@@ -24,7 +24,8 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "stof/doctrine-extensions-bundle": "^1.2",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "yavin/symfony-init-controller": "^0.4.0"
+        "yavin/symfony-init-controller": "^0.4.0",
+        "stfalcon/tinymce-bundle": "^2.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
