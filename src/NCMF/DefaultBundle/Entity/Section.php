@@ -373,4 +373,178 @@ class Section
     {
         return $this->instances;
     }
+    /**
+     * @var string
+     */
+    private $content;
+
+    /**
+     * @var string
+     */
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $description;
+
+    /**
+     * @var string
+     */
+    private $keywords;
+
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return Section
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Section
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Section
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set keywords
+     *
+     * @param string $keywords
+     *
+     * @return Section
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+
+        return $this;
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return string
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
+    /**
+     * @var string
+     */
+    private $template;
+
+
+    /**
+     * Set template
+     *
+     * @param string $template
+     *
+     * @return Section
+     */
+    public function setTemplate($template)
+    {
+        $this->template = $template;
+
+        return $this;
+    }
+
+    /**
+     * Get template
+     *
+     * @return string
+     */
+    public function getTemplate()
+    {
+        return $this->template;
+    }
+    /**
+     * @var string
+     */
+    private $header;
+
+
+    /**
+     * Set header
+     *
+     * @param string $header
+     *
+     * @return Section
+     */
+    public function setHeader($header)
+    {
+        $this->header = $header;
+
+        return $this;
+    }
+
+    /**
+     * Get header
+     *
+     * @return string
+     */
+    public function getHeader()
+    {
+        return $this->header;
+    }
 }

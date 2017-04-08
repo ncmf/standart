@@ -68,7 +68,7 @@ doctrine:
         proxy_dir: '%kernel.cache_dir%/doctrine/orm/Proxies'
         default_entity_manager: default
         metadata_cache_driver: apcu
-        query_cache_driver: array
+        query_cache_driver: apcu
         result_cache_driver: apcu
 
 # Swiftmailer Configuration
@@ -133,3 +133,42 @@ fos_user:
             type:  NCMF\DefaultBundle\Form\RegistrationType
         confirmation:
             enabled: true
+
+stfalcon_tinymce:
+    #base_url: /
+    tinymce_jquery: true
+    theme:
+        simple:
+            relative_urls: false
+            #file_browser_callback : elFinderBrowser
+            image_class_list:
+                - {title: 'без класса', value: ''}
+                - {title: 'Слева', value: 'left-image'}
+                - {title: 'Справа', value: 'right-image'}
+                - {title: 'По ширине', value: 'img-fluid img-responsive'}
+            content_css:
+                - "https://yastatic.net/bootstrap/3.3.6/css/bootstrap.min.css"
+                - "/admin/dist/tinymce/content.css"
+            plugins:
+                - "advlist autolink lists link image charmap print preview hr anchor pagebreak"
+                - "searchreplace wordcount visualblocks visualchars code fullscreen"
+                - "insertdatetime media nonbreaking save table contextmenu directionality"
+                - "emoticons template paste textcolor"
+            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+            toolbar2: "print preview media | forecolor backcolor emoticons | stfalcon | example"
+            image_advtab: true
+            templates:
+                - {title: 'Test template 1', content: 'Test 1'}
+                - {title: 'Test template 2', content: 'Test 2'}
+        advanced:
+            plugins:
+                - "advlist autolink lists link image charmap print preview hr anchor pagebreak"
+                - "searchreplace wordcount visualblocks visualchars code fullscreen"
+                - "insertdatetime media nonbreaking save table contextmenu directionality"
+                - "emoticons template paste textcolor"
+            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+            toolbar2: "print preview media | forecolor backcolor emoticons | stfalcon | example"
+            image_advtab: true
+            templates:
+                - {title: 'Test template 1', content: 'Test 1'}
+                - {title: 'Test template 2', content: 'Test 2'}

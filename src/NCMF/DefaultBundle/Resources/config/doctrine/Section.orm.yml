@@ -34,6 +34,30 @@ NCMF\DefaultBundle\Entity\Section:
             type: integer
             gedmo:
                 - treeLevel
+        content:
+            type: text
+            length: 16777215
+            nullable: true
+        title:
+            type: text
+            length: 255
+            nullable: true
+        header:
+            type: text
+            length: 255
+            nullable: true
+        description:
+            type: text
+            length: 255
+            nullable: true
+        keywords:
+            type: text
+            length: 255
+            nullable: true
+        template:
+            type: text
+            length: 100
+            nullable: true
         slug:
             type: string
             length: 125

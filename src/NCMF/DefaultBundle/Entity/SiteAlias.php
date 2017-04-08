@@ -80,4 +80,15 @@ class SiteAlias
     {
         return $this->site;
     }
+
+
+    /**
+     * Get siteId
+     *
+     * @return integer
+     */
+    public function getSiteId()
+    {
+        return $this->getSite()->getId();
+    }
 }

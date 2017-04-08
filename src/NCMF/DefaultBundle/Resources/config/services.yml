@@ -1,5 +1,10 @@
 services:
-   symfony.controller.subscriber.init:
-       class: Yavin\Symfony\Controller\InitControllerSubscriber
-       tags:
-           - { name: kernel.event_subscriber }
+    symfony.controller.subscriber.init:
+        class: Yavin\Symfony\Controller\InitControllerSubscriber
+        tags:
+            - { name: kernel.event_subscriber }
+    ncmf.twig.template_extension:
+        class: NCMF\DefaultBundle\Twig\TemplateExtension
+        tags:
+            - { name: twig.extension }
+        arguments: ["@logger"]

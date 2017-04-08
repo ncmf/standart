@@ -5,6 +5,7 @@ namespace NCMF\DefaultBundle\Controller;
 use NCMF\DefaultBundle\Entity\Section;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Cache\Adapter\ApcuAdapter;
 
 /**
  * Section controller.
@@ -41,7 +42,8 @@ class SectionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($section);
             $em->flush($section);
-
+            $cache = new ApcuAdapter();
+            $cache->deleteItem('section__'.$section->getSlug());
             return $this->redirectToRoute('admin_section_show', array('id' => $section->getId()));
         }
 
@@ -77,7 +79,8 @@ class SectionController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $cache = new ApcuAdapter();
+            $cache->deleteItem('section__'.$section->getSlug());
             return $this->redirectToRoute('admin_section_edit', array('id' => $section->getId()));
         }
 
